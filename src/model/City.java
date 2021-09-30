@@ -1,12 +1,12 @@
 package model;
 
 public class City {
-    public int id;
-    public String name;
-    public String region;
-    public String district;
-    public int population;
-    public int foundation;
+    private int id;
+    private String name;
+    private String region;
+    private String district;
+    private int population;
+    private int foundation;
 
     public City(int id, String name, String region, String district, int population, int foundation) {
         this.id = id;
@@ -14,6 +14,54 @@ public class City {
         this.region = region;
         this.district = district;
         this.population = population;
+        this.foundation = foundation;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getRegion() {
+        return region;
+    }
+
+    public String getDistrict() {
+        return district;
+    }
+
+    public int getFoundation() {
+        return foundation;
+    }
+
+    public int getPopulation() {
+        return population;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setRegion(String region) {
+        this.region = region;
+    }
+
+    public void setDistrict(String district) {
+        this.district = district;
+    }
+
+    public void setPopulation(int population) {
+        this.population = population;
+    }
+
+    public void setFoundation(int foundation) {
         this.foundation = foundation;
     }
 

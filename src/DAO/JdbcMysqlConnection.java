@@ -14,7 +14,7 @@ public class JdbcMysqlConnection {
     private Statement stmt;
 
     private JdbcMysqlConnection() {
-        try (FileInputStream fis = new FileInputStream("src/DAO/connection.properties")) {
+        try (FileInputStream fis = new FileInputStream("resources/connection.properties")) {
             Properties p = new Properties();
             p.load (fis);
             url = (String) p.get("jdbc.url");

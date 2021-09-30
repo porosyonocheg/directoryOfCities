@@ -1,24 +1,17 @@
 package DAO.extraServices;
 
-import DAO.CityDAOImpl;
 import DAO.JdbcMysqlConnection;
-import model.City;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 
-public class Print {
-    public static void printCities() {
-        for (City city : CityDAOImpl.getInstance().getCities()) System.out.println(city);
-    }
+public class Results {
 
-    protected static void printCities(List<City> cities) {
-        for (City city : cities) System.out.println(city);
-    }
-
-    protected static void printResultOfQuery(String query) {
+    protected static List<String> getResultOfQuery(String query) {
+        List<String> result = new ArrayList<>();
         try (ResultSet rs = JdbcMysqlConnection.getInstance().getStmt().executeQuery(query)) {
             while (rs.next()) {
                 String name = rs.getString("name");
@@ -26,7 +19,7 @@ public class Print {
                 String district = rs.getString("district");
                 int population = rs.getInt("population");
                 int foundation = rs.getInt("foundation");
-                System.out.println("City{" +
+                result.add("City{" +
                         "name='" + name + '\'' +
                         ", region='" + region + '\'' +
                         ", district='" + district + '\'' +
@@ -37,5 +30,6 @@ public class Print {
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
+        return result;
     }
 }

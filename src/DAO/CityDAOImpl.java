@@ -48,7 +48,7 @@ public class CityDAOImpl implements CityDAO {
         String[] cities = br.readLine().split(";");
         Set<Integer> ids = new HashSet<>();
         for (City c : getCities()) {
-            ids.add(c.id);
+            ids.add(c.getId());
         }
         List<City> list = new ArrayList<>();
         for (int i = 0; i < cities.length;) {
@@ -69,12 +69,12 @@ public class CityDAOImpl implements CityDAO {
         try {
             PreparedStatement preparedStatement = jdbcMysqlConnection.getPreparedStatement(query);
             for (City c : list) {
-                preparedStatement.setInt(1, c.id);
-                preparedStatement.setString(2, c.name);
-                preparedStatement.setString(3, c.region);
-                preparedStatement.setString(4, c.district);
-                preparedStatement.setInt(5, c.population);
-                preparedStatement.setInt(6, c.foundation);
+                preparedStatement.setInt(1, c.getId());
+                preparedStatement.setString(2, c.getName());
+                preparedStatement.setString(3, c.getRegion());
+                preparedStatement.setString(4, c.getDistrict());
+                preparedStatement.setInt(5, c.getPopulation());
+                preparedStatement.setInt(6, c.getFoundation());
                 preparedStatement.executeUpdate();
             }
         } catch (SQLException e) {
